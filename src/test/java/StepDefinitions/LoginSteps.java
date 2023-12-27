@@ -2,8 +2,6 @@ package StepDefinitions;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import Base.BaseTest;
 import Pages.AddcustomerPage;
@@ -16,25 +14,29 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import junit.framework.Assert;
 
-public class LoginSteps extends BaseTest{
+public class LoginSteps extends BaseTest {
 	public LoginSteps() throws Throwable {
 		super();
-		
+
 	}
+
 	public LoginPage lp;
 	public AddcustomerPage addCust;
 	public SearchCustomerPage searchCust;
 
 	@Before
 	public void setup() throws Throwable {
+		logger.info("opening browser");
 		initialization();
 		lp = new LoginPage(driver);
-		
+
 	}
 
 	@After
 	public void teardown() {
+		logger.info("closing browser");
 		driver.quit();
+
 	}
 
 	public static String randomestring() {
@@ -46,17 +48,18 @@ public class LoginSteps extends BaseTest{
 
 	@Given("User Launch Chrome browser")
 	public void user_launch_chrome_browser() {
-		System.out.println("Browser launched successfully");
+		logger.info(" browser launched successfully");
 	}
 
 	@When("User opens URL {string}")
 	public void user_opens_url(String url) {
+		logger.info("opening url");
 		driver.get(url);
 	}
 
 	@When("User enters Email as {string} and Password as {string}")
 	public void user_enters_email_as_and_password_as(String email, String password) {
-
+		logger.info("entering username & password");
 		lp.setUserName(email);
 		lp.setPassword(password);
 	}
@@ -64,6 +67,7 @@ public class LoginSteps extends BaseTest{
 	@When("Click on Login")
 	public void click_on_login() {
 		lp.clickLogin();
+		logger.info("login successful");
 	}
 
 	@Then("Page Title should be {string}")

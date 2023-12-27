@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -19,9 +22,15 @@ public class BaseTest {
 	public static WebDriver driver;
 	public static EventListenerTest eventlistenertest;
 	public static EventFiringWebDriver eventfiringwebdriver;
-
+	public static Logger logger;
+	
 	public BaseTest() throws Throwable { // we have to create constructor for every class in framework
 
+		//Logging
+				logger=Logger.getLogger("nopCommerceSDET");
+				PropertyConfigurator.configure("Log4j.properties");
+				logger.setLevel(Level.DEBUG);
+		
 		try {
 			prop = new Properties();
 			FileInputStream file = new FileInputStream(
