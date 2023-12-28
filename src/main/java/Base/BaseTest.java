@@ -23,18 +23,18 @@ public class BaseTest {
 	public static EventListenerTest eventlistenertest;
 	public static EventFiringWebDriver eventfiringwebdriver;
 	public static Logger logger;
-	
+
 	public BaseTest() throws Throwable { // we have to create constructor for every class in framework
 
-		//Logging
-				logger=Logger.getLogger("nopCommerceSDET");
-				PropertyConfigurator.configure("Log4j.properties");
-				logger.setLevel(Level.DEBUG);
-		
+		// Logging ----> always import from org.apache.log4j
+
+		logger = Logger.getLogger("nopCommerce");
+		PropertyConfigurator.configure("Log4j.properties");
+		logger.setLevel(Level.DEBUG);
+
 		try {
 			prop = new Properties();
-			FileInputStream file = new FileInputStream(
-					".\\src\\main\\java\\Config\\config.properties");
+			FileInputStream file = new FileInputStream(".\\src\\main\\java\\Config\\config.properties");
 			prop.load(file);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -67,6 +67,6 @@ public class BaseTest {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
-		//driver.get(prop.getProperty("url"));
+		// driver.get(prop.getProperty("url"));
 	}
 }
