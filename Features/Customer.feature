@@ -6,8 +6,8 @@ Given User Launch Chrome browser
 	And User enters Email as "admin@yourstore.com" and Password as "admin" 
 	And Click on Login 
 
-Scenario: Add new Customer 
-	
+@sanity
+Scenario: Add new Customer 	
 	Then User can view Dashboad 
 	When User click on customers Menu 
 	And click on customers Menu Item 
@@ -27,7 +27,7 @@ Scenario: Search Customer by EMailID
 	Then User should found Email in the Search table
 
 	
-@regression
+@end2end
 Scenario: Search Customer by Name
 	Then User can view Dashboad 
 	When User click on customers Menu 

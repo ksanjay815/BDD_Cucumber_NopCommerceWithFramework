@@ -21,6 +21,8 @@ public class AddcustomerPage {
 	By lnkCustomers_menuitem=By.xpath("//a[@href=\"/Admin/Customer/List\"]//p[contains(text(),\"Customers\")]");
 	
 	By btnAddnew=By.xpath("//a[normalize-space()=\"Add new\"]"); //Add new
+	
+	By addbtnSymbol=By.xpath("//div[@class=\"card-header with-border clearfix\"]"); //Add btn symbol
 		
 	By txtEmail=By.xpath("//input[@id='Email']");
 	By txtPassword=By.xpath("//input[@id='Password']");
@@ -65,6 +67,10 @@ public class AddcustomerPage {
 	
 	public void clickOnAddnew() {
 		ldriver.findElement(btnAddnew).click();
+	}
+	
+	public void clickOnAddbtnSymbol() {
+		ldriver.findElement(addbtnSymbol).click();
 	}
 	
 	public void setEmail(String email)

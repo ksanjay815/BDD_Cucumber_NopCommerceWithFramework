@@ -13,6 +13,7 @@ Feature: Login
 #	When User click on Log out link 
 #	Then Page Title should be "Your store. Login" 
 	
+	@smoke
 	Scenario: Successful Login with Valid Credentials 
 	Given User Launch Chrome browser 
 	When User opens URL "http://admin-demo.nopcommerce.com/login" 
@@ -22,6 +23,7 @@ Feature: Login
 	When User click on Log out link 
 	Then Page Title should be "Your store. Login" 
 
+@sanity
 Scenario Outline: Login Data Driven 
 	Given User Launch Chrome browser 
 	When User opens URL "http://admin-demo.nopcommerce.com/login" 

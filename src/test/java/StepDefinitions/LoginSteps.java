@@ -114,6 +114,8 @@ public class LoginSteps extends BaseTest {
 	@When("click on Add new button")
 	public void click_on_Add_new_button() throws InterruptedException {
 		addCust.clickOnAddnew();
+//		Thread.sleep(1000);
+//		addCust.clickOnAddbtnSymbol();
 		Thread.sleep(2000);
 	}
 
